@@ -7,8 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
-
-    </Grid>
+    <RelativePanel MinHeight="300">
+        <TextBox Name="txtHeight" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True"></TextBox>
+        <TextBlock Name="lblHeight" RelativePanel.LeftOf="txtHeight" RelativePanel.AlignVerticalCenterWith="txtHeight">Height</TextBlock>
+        <TextBox Name="txtWeight" RelativePanel.AlignLeftWith="txtHeight" RelativePanel.Below="txtHeight"></TextBox>
+        <TextBlock Name="lblWeight" RelativePanel.LeftOf="txtWeight" RelativePanel.AlignVerticalCenterWith="txtWeight">Weight</TextBlock>
+        <Button Name="btnCalculate" RelativePanel.AlignLeftWith="lblWeight" RelativePanel.AlignRightWith="txtHeight" RelativePanel.Below="txtWeight" Click="btnCalculate_Click">Calculate</Button>
+        <TextBlock Name="lblResult" RelativePanel.Below="btnCalculate" RelativePanel.AlignHorizontalCenterWithPanel="True"></TextBlock>
+    </RelativePanel>
 </Page>
