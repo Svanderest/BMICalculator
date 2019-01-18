@@ -7,12 +7,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <RelativePanel MinHeight="300">
-        <TextBox Name="txtHeight" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True"></TextBox>
-        <TextBlock Name="lblHeight" RelativePanel.LeftOf="txtHeight" RelativePanel.AlignVerticalCenterWith="txtHeight">Height</TextBlock>
-        <TextBox Name="txtWeight" RelativePanel.AlignLeftWith="txtHeight" RelativePanel.Below="txtHeight"></TextBox>
-        <TextBlock Name="lblWeight" RelativePanel.LeftOf="txtWeight" RelativePanel.AlignVerticalCenterWith="txtWeight">Weight</TextBlock>
-        <Button Name="btnCalculate" RelativePanel.AlignLeftWith="lblWeight" RelativePanel.AlignRightWith="txtHeight" RelativePanel.Below="txtWeight" Click="btnCalculate_Click">Calculate</Button>
-        <TextBlock Name="lblResult" RelativePanel.Below="btnCalculate" RelativePanel.AlignHorizontalCenterWithPanel="True"></TextBlock>
-    </RelativePanel>
+    <SplitView Name="stvMain">
+        <SplitView.Pane>
+            <TextBlock></TextBlock>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <RelativePanel MinHeight="500">
+                <TextBlock Name="lblWeight" Margin="5,25,5,5" TextAlignment="Right">Weight</TextBlock>
+                <TextBox Name="txtWeight" RelativePanel.RightOf="lblWeight" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWith="lblWeight" Margin="0,25,0,5"></TextBox>
+                <TextBlock Name="lblHeight" Margin=""></TextBlock>
+            </RelativePanel>
+        </SplitView.Content>
+    </SplitView>
 </Page>
