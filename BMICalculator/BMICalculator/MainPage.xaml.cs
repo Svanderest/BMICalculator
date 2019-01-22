@@ -29,12 +29,24 @@ namespace BMICalculator
 
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
-            //int Height;
-            //int Weight;
-            //if (int.TryParse(txtHeight.Text, out Height) && int.TryParse(txtWeight.Text, out Weight))
-            //    lblResult.Text = (new BmiCalculator(Height, Weight)).Result;
-            //else
-            //    lblResult.Text = "Please enter whole number values for height and weight";
+            int Height;
+            int Weight;
+            if (int.TryParse(txtHeight.Text, out Height) && int.TryParse(txtWeight.Text, out Weight))
+                lblResult.Text = (new BmiCalculator(Height, Weight, lbxUnits.SelectedIndex == 0)).Result;
+            else
+                lblResult.Text = "Please enter whole number values for height and weight";
+        }
+
+        private void btnUnits_Click(object sender, RoutedEventArgs e)
+        {
+            stvMain.IsPaneOpen = true;
+        }       
+
+        private void lbxUnits_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            stvMain.IsPaneOpen = false;
+            lblWeight.Text = lbxUnits.SelectedIndex == 0 ? "Weight (Kg)" : "Weight (lbs)";
+            lblHeight.Text = lbxUnits.SelectedIndex == 0 ? "Height (m)" : "Height (in)";
         }
     }
 }

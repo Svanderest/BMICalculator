@@ -9,13 +9,23 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <SplitView Name="stvMain">
         <SplitView.Pane>
-            <TextBlock></TextBlock>
+            <StackPanel>
+                <TextBlock Name="lblUnits" Margin="5,0,0,0">Please Select Units</TextBlock>
+                <ListBox Name="lbxUnits" SelectionMode="Single" Tapped="lbxUnits_Tapped">
+                    <ListBoxItem Content="Metric" IsSelected="True"></ListBoxItem>
+                    <ListBoxItem Content="Imperial"></ListBoxItem>
+                </ListBox>
+            </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
-            <RelativePanel MinHeight="500">
-                <TextBlock Name="lblWeight" Margin="5,25,5,5" TextAlignment="Right">Weight</TextBlock>
-                <TextBox Name="txtWeight" RelativePanel.RightOf="lblWeight" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWith="lblWeight" Margin="0,25,0,5"></TextBox>
-                <TextBlock Name="lblHeight" Margin=""></TextBlock>
+            <RelativePanel Margin="0,25,0,0">
+                <TextBlock Name="lblWeight" Margin="5,0,5,0" TextAlignment="Right">Weight (Kg)</TextBlock>
+                <TextBox Name="txtWeight" RelativePanel.RightOf="lblWeight" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWith="lblWeight" Margin="5,0,5,0"></TextBox>
+                <TextBlock Name="lblHeight" Margin="5,0,5,5" RelativePanel.AlignTopWith="txtHeight" TextAlignment="Right" RelativePanel.AlignLeftWith="lblWeight">Height (m)</TextBlock>
+                <TextBox Name="txtHeight" Margin="5,0,5,5" RelativePanel.Below="txtWeight" RelativePanel.AlignLeftWith="txtWeight" RelativePanel.AlignRightWithPanel="True"></TextBox>
+                <Button Name="btnCalculate" RelativePanel.Below="txtHeight" Click="btnCalculate_Click" Margin="5,0,5,5">Calculate</Button>
+                <Button Name="btnUnits" RelativePanel.RightOf="btnCalculate" RelativePanel.AlignTopWith="btnCalculate" Click="btnUnits_Click">Select Units</Button>
+                <TextBlock Name="lblResult" RelativePanel.Below="btnCalculate" Margin="5,5,5,5"></TextBlock>
             </RelativePanel>
         </SplitView.Content>
     </SplitView>
